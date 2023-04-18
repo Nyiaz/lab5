@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ахунов Нияз</title>
+</head>
+<body>
+<script>
+    let chars = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
+    let str = "АБФЦВОДВЦФЙЦВОДЯЫОДВФЦЯ";
+
+    let newCharStr = str.split("").map((c, index) => {
+        let i = chars.indexOf(c);
+        return i === chars.length - 1? chars[0] : chars[++i];
+    })
+
+    document.write(`<p>Исходная строка: ${str}</p>`)
+    document.write(`<p>Зашифрованная строка: ${newCharStr.join("")}</p>`)
+</script>
+</body>
+</html>

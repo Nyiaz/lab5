@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ахунов Нияз</title>
+</head>
+<body>
+<script>
+    function getRandomStr(len) {
+        const chars = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ';
+        let res = '';
+        for (let i = 0; i < len; i++) {
+            res += chars[Math.floor(Math.random() * chars.length)];
+        }
+        return res;
+    }
+
+    function mixer(arg) {
+        if (arg.length <= 3) {
+            return arg;
+        }
+
+        let otherChars = arg.slice(1, -1).split('');
+        return arg[0] + otherChars.sort(() => Math.random() - 0.5).join('') + arg.slice(-1);
+    }
+
+    let str = getRandomStr(10);
+    document.write(`<p>Исходная строка: ${str}</p>`);
+    
+    let strArr = str.split(' ');
+    let newArr = strArr.map(mixer);
+    document.write(`<p>Новая строка: ${newArr.join(' ')}</p>`);
+</script>
+</body>
+</html>
